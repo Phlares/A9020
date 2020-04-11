@@ -3,6 +3,18 @@
 	{
 		"selected_items":
 		[
+			[
+				"object",
+				"objectHit"
+			],
+			[
+				"co",
+				"Color"
+			],
+			[
+				"ra",
+				"raycast"
+			]
 		]
 	},
 	"buffers":
@@ -25,6 +37,15 @@
 				"name": "Package Control Messages",
 				"read_only": true,
 				"scratch": true
+			}
+		},
+		{
+			"file": "RayCastToMouseTarget.cs",
+			"settings":
+			{
+				"buffer_size": 950,
+				"encoding": "UTF-8 with BOM",
+				"line_ending": "Windows"
 			}
 		}
 	],
@@ -92,6 +113,7 @@
 	],
 	"file_history":
 	[
+		"/C/Users/rando/Documents/GameDev/AA9020/A9020/Assets/Scripts/NewBehaviourScript.cs"
 	],
 	"find":
 	{
@@ -126,7 +148,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -157,7 +179,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
@@ -188,6 +210,37 @@
 						},
 						"translation.x": 0.0,
 						"translation.y": 378.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "RayCastToMouseTarget.cs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 950,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								950,
+								950
+							]
+						],
+						"settings":
+						{
+							"SL.15.region_keys":
+							[
+							],
+							"syntax": "Packages/Unity3D/UnityC#.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 114.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -232,6 +285,10 @@
 		"height": 0.0
 	},
 	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.variable_get":
 	{
 		"height": 0.0
 	},

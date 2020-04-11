@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class RayCastToMouseTarget : MonoBehaviour
 {
+	public Vector3 rayHitLocation;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,13 +15,10 @@ public class RayCastToMouseTarget : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-	if (Input.GetKey(KeyCode.Mouse0))
-	{
-		CastRay();
-	}
+    	
     }
 
-    void CastRay()
+   	public void CastRay()
     {
         RaycastHit hit;
         Ray ray = GetComponent<Camera>().ScreenPointToRay(Input.mousePosition);
@@ -32,6 +30,8 @@ public class RayCastToMouseTarget : MonoBehaviour
             Debug.DrawRay(ray.origin, (ray.direction * hit.distance) , Color.green, 3f, true);
             Debug.Log("I am shooting a thing at " + hit.collider.gameObject + " at " + ray.GetPoint(objectHit.position.x));
             // Do something with the object that was hit by the raycast.
+            rayHitLocation = hit.point;
+           // return hit;
         }
     }
 }
