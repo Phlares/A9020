@@ -4,6 +4,22 @@
 		"selected_items":
 		[
 			[
+				"else",
+				"elseif\tElse If"
+			],
+			[
+				"next",
+				"nextZoneLocation"
+			],
+			[
+				"Re",
+				"RemoveAt"
+			],
+			[
+				"zon",
+				"zoneLocations"
+			],
+			[
 				"Ray",
 				"RaycastHit"
 			],
@@ -49,7 +65,7 @@
 			"file": "CreateZone.cs",
 			"settings":
 			{
-				"buffer_size": 858,
+				"buffer_size": 3635,
 				"encoding": "UTF-8 with BOM",
 				"line_ending": "Windows"
 			}
@@ -115,6 +131,7 @@
 	},
 	"expanded_folders":
 	[
+		"/C/Users/rando/Documents/GameDev/AA9020/A9020/Assets/Scripts/Assets/Scripts"
 	],
 	"file_history":
 	[
@@ -154,7 +171,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -185,7 +202,7 @@
 						"translation.y": 204.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
@@ -216,7 +233,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
@@ -225,26 +242,29 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 858,
+						"buffer_size": 3635,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								858,
-								858
+								1419,
+								1419
 							]
 						],
 						"settings":
 						{
+							"SL.15.region_keys":
+							[
+							],
 							"syntax": "Packages/Unity3D/UnityC#.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 662.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 0,
 					"type": "text"
 				}
 			]
@@ -284,6 +304,10 @@
 	"output.SublimeLinter":
 	{
 		"height": 0.0
+	},
+	"output.exec":
+	{
+		"height": 126.0
 	},
 	"output.find_results":
 	{
