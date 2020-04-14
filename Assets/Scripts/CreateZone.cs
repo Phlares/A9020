@@ -44,13 +44,17 @@ public class CreateZone : MonoBehaviour
     public void SpawnZoneAtLocation()
     {
     	//Null if there was no previous list, or if the list is reset.
-    	if (zoneLocations[0] == Vector3.zero)
+    	if (zoneLocations[1] == Vector3.zero)
     	{
-    		Instantiate(zonePrefab, zoneLocations[1], Quaternion.identity);
+    		zonePrefab.SetActive(true);
+    		zonePrefab.transform.position = zoneLocations[1];
+    		//Instantiate(zonePrefab, zoneLocations[1], Quaternion.identity);
+    		Debug.Log("Turning on my prefab and moving to location 1");
     		
     	}
     	if (zoneLocations[1] != Vector3.zero){
-    	zonePrefab.transform.position = zoneLocations[2];
+    		Debug.Log("Trying to move to " + zoneLocations[1] + " from the list");
+    		zonePrefab.transform.position = zoneLocations[1];
 
     	}
 
@@ -68,34 +72,32 @@ public class CreateZone : MonoBehaviour
     	//Check if we are already at our next location
     //	if (zoneLocations[2] == zoneLocations[1]) //This code should run if and only if the player moves to the exact same location, that case, pull the next location from the list.=
     	//{
-    			Debug.Log("Trying to remove " + zoneLocations[0] + " from the list");
+    			//Debug.Log("Trying to remove " + zoneLocations[0] + " from the list");
     			zoneLocations.RemoveAt(0);
-
-    //	}
-    	Debug.Log("did that now our count is " + zoneLocations.Count);
-    	if (3 > zoneLocations.Count) // This code will run when there is a current location at [1], but not a next location, if zoneLocations[1] is the same as next location, do nothing.
-    	{
-    		/* if (zoneLocations[1] == nextZoneLocation)
-    		{
-    			Debug.Log("The next location would be the current location, do not set a new location.");
-    		}
-    		else if (zoneLocations[1] != nextZoneLocation) {
-    			Debug.Log("There was no nextlocation at index 2, setting " + nextZoneLocation + " to next location");
-    			zoneLocations[2] = nextZoneLocation; // No next location (such as first start)
-    			
-    		} 
-    	else */ //if (zoneLocations[2] != null)
-    		//{
-    			
     			Vector3 nextZoneListPosition = new Vector3();
     			nextZoneListPosition = nextZoneLocation;
-    			Debug.Log("Trying to add " + nextZoneListPosition + " as next location");
+    			//Debug.Log("Trying to add " + nextZoneListPosition + " as next location");
     			zoneLocations.Add(nextZoneListPosition); // Add next location to top;
+    			currentZoneLocation = zoneLocations[1];
 
-    			ReadList();
+    //	}
+    	//Debug.Log("did that now our count is " + zoneLocations.Count);
+    	//if (3 > zoneLocations.Count) // This code will run when there is a current location at [1], but not a next location, if zoneLocations[1] is the same as next location, do nothing.
+    	//{
+    	//	 if (zoneLocations[1] == nextZoneLocation)
+    	//	{
+    	//		Debug.Log("The next location would be the current location, do not set a new location.");
+    	//	}
+    	//	else if (zoneLocations[1] != nextZoneLocation) {
+    	//		Debug.Log("There was no nextlocation at index 2, setting " + nextZoneLocation + " to next location");
+    		//	zoneLocations[2] = nextZoneLocation; // No next location (such as first start)		
+    		//} 
+    	//else  if (zoneLocations[2] != null)
+    		//{
+    			//ReadList();
     		//}
 
-    	}
+    	//}
     	
     }
     public void ReadList()
