@@ -27,6 +27,8 @@ public class InputManager : MonoBehaviour
 	if (Input.GetKeyDown(KeyCode.Mouse0))
 		{
 			rayManager.CastRay();
+			zoneManager.SetNextLocationToHit();
+			zoneManager.AddNextLocationToList();
 			zoneManager.SpawnZoneAtLocation();
 		}
     }

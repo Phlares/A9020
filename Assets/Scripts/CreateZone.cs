@@ -31,22 +31,26 @@ public class CreateZone : MonoBehaviour
     {
     	rayCastCamera = GameObject.Find("Main Camera");
     	rayCastManager = rayCastCamera.GetComponent<RayCastToMouseTarget>();
+    	// currentZoneLocation = Vector3.zero;
     	//Create our List
-    	List<Vector3> zoneLocations = new List<Vector3>();
-    	
+    	zoneLocations.Add(currentZoneLocation); //Sets 0 index
+    	zoneLocations.Add(currentZoneLocation); //Sets the 2 index
+    	zoneLocations.Add(currentZoneLocation); //Sets 1 index
+    		//We run this twice to achieve L16 rule: 0 previous location, 1 current location.
+    	Debug.Log("The length of our list is " + zoneLocations.Count);
+    	Debug.Log("The Value held at 0 index of our list is " + zoneLocations[0]);
     }
 
     public void SpawnZoneAtLocation()
     {
     	//Null if there was no previous list, or if the list is reset.
-    	if (zoneLocations[0] == null)
+    	if (zoneLocations[0] == Vector3.zero)
     	{
-    		Instantiate(zonePrefab, currentZoneLocation, Quaternion.identity);
-    		zoneLocations.Add(currentZoneLocation); //Sets 0 index
-    		zoneLocations.Add(currentZoneLocation); //Sets 1 index
-    		//We run this twice to achieve L16 rule: 0 previous location, 1 current location.
+    		Instantiate(zonePrefab, zoneLocations[1], Quaternion.identity);
+    		
     	}
-    	if (zoneLocations[1] != null){
+    	if (zoneLocations[1] != Vector3.zero){
+    	zonePrefab.transform.position = zoneLocations[2];
 
     	}
 
@@ -55,16 +59,23 @@ public class CreateZone : MonoBehaviour
 
     public void AddNextLocationToList()
     {
-    	// Code to handle List Elements
+    	// Check whether there is a current zone
+    	// If there is a current zone, set the next zone
+    	// When the current zone == next zone, exit
+    	// When there is a new command, set the next location to current location, and set new location as next location--> NTH for movement, it will be nice to do a momentum type function: It will need some work, seems tricky: Force will certainly have some quirkiness, Lerp won't be smooth, move will be robotic, translate too.
+    	// 
+    	//Code to handle List Elements
     	//Check if we are already at our next location
-    	if (zoneLocations[2] == zoneLocations[1]) //This code should run if and only if the player moves to the exact same location, that case, pull the next location from the list.=
+    //	if (zoneLocations[2] == zoneLocations[1]) //This code should run if and only if the player moves to the exact same location, that case, pull the next location from the list.=
+    	//{
+    			Debug.Log("Trying to remove " + zoneLocations[0] + " from the list");
+    			zoneLocations.RemoveAt(0);
+
+    //	}
+    	Debug.Log("did that now our count is " + zoneLocations.Count);
+    	if (3 > zoneLocations.Count) // This code will run when there is a current location at [1], but not a next location, if zoneLocations[1] is the same as next location, do nothing.
     	{
-    			Debug.Log("Trying to remove " + zoneLocations[2] + " from the list");
-    			zoneLocations.RemoveAt(2);
-    	}
-    	if (zoneLocations[2] == null) // This code will run when there is a current location at [1], but not a next location, if zoneLocations[1] is the same as next location, do nothing.
-    	{
-    		if (zoneLocations[1] == nextZoneLocation)
+    		/* if (zoneLocations[1] == nextZoneLocation)
     		{
     			Debug.Log("The next location would be the current location, do not set a new location.");
     		}
@@ -72,15 +83,17 @@ public class CreateZone : MonoBehaviour
     			Debug.Log("There was no nextlocation at index 2, setting " + nextZoneLocation + " to next location");
     			zoneLocations[2] = nextZoneLocation; // No next location (such as first start)
     			
-    		}
-    	else if (zoneLocations[2] != null)
-    		{
-    			Debug.Log("Trying to add " + nextZoneLocation + " as next location");
-    			zoneLocations.Add(nextZoneLocation); // Add next location to top of stack, Index [3]
-    			zoneLocations.RemoveAt(0); // Remove history FILO
+    		} 
+    	else */ //if (zoneLocations[2] != null)
+    		//{
+    			
+    			Vector3 nextZoneListPosition = new Vector3();
+    			nextZoneListPosition = nextZoneLocation;
+    			Debug.Log("Trying to add " + nextZoneListPosition + " as next location");
+    			zoneLocations.Add(nextZoneListPosition); // Add next location to top;
 
     			ReadList();
-    		}
+    		//}
 
     	}
     	
@@ -97,14 +110,5 @@ public class CreateZone : MonoBehaviour
     	nextZoneLocation = rayCastManager.rayHitLocation;
     }
 
-    public void SetNextZone()
-    {
-    	// Check whether there is a current zone
-    	// If there is a current zone, set the next zone
-    	// When the current zone == next zone, exit
-    	// When there is a new command, set the next location to current location, and set new location as next location--> NTH for movement, it will be nice to do a momentum type function: It will need some work, seems tricky: Force will certainly have some quirkiness, Lerp won't be smooth, move will be robotic, translate too.
-    	// 
-    	// 
-    }
 
 }
